@@ -4,7 +4,7 @@ words.txt: /usr/share/dict/words
 all: histogram.png
 
 clean:
-	rm -f words.txt histogram.tsv histogram.png Rplots.pdf
+	rm -f words.txt histogram.tsv histogram.png
 	
 histogram.tsv: histogram.r words.txt
 	Rscript $<
@@ -12,3 +12,4 @@ histogram.tsv: histogram.r words.txt
 
 histogram.png: histogram.tsv
 	Rscript -e 'library(ggplot2); qplot(Length, Freq, data=read.delim("$<")); ggsave("$@")'
+	rm Rplots.pdf
