@@ -1,0 +1,21 @@
+---
+title: "report"
+author: "Lillian"
+date: "10/5/2020"
+output: html_document
+---
+
+
+![*Fig. 1* Histogram of English word lengths](histogram.png)
+
+
+```{r load-data}
+tab <- read.delim("histogram.tsv")
+```
+
+
+```{r analyze-data}
+common_len<-tab$Length[which.max(tab$Freq)]
+```
+
+The most common English word length is `r common_len`
